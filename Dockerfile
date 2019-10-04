@@ -9,12 +9,11 @@ RUN cpan Log::Log4perl Log::LogDispatch Log::Dispatch::File YAML::Tiny \
 
 # texlive
 RUN cd /usr/local/src && \
-  wget ftp://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2018/tlnet-final/install-tl-unx.tar.gz && \
+  wget ftp://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2019/install-tl-unx.tar.gz && \
   tar -xz -f install-tl-unx.tar.gz && \
   cd install-tl-20* && \
   echo "selected_scheme scheme-full" > profile && \
   ./install-tl \
-    -repository ftp://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2018/tlnet-final \
     -profile profile
-ENV PATH /usr/local/texlive/2018/bin/x86_64-linux:$PATH
+ENV PATH /usr/local/texlive/2019/bin/x86_64-linux:$PATH
 ENTRYPOINT ["tlmgr", "--version"]
