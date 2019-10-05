@@ -16,4 +16,3 @@ RUN cd /usr/local/src && \
   ./install-tl \
     -profile profile
 ENV PATH /usr/local/texlive/2019/bin/x86_64-linux:$PATH
-ENTRYPOINT ["tlmgr", "--version"]
