@@ -17,4 +17,3 @@ RUN cd /usr/local/src && \
     -repository ftp://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2016/tlnet-final \
     -profile profile
 ENV PATH /usr/local/texlive/2016/bin/x86_64-linux:$PATH
-ENTRYPOINT ["tlmgr", "--version"]
