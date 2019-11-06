@@ -1,7 +1,8 @@
 FROM debian:latest
 
 RUN apt update -y
-RUN apt install -y cmake git tar wget
+RUN apt install -y cmake git poppler-utils imagemagick tar wget
+
 
 # Perl libraries for latexindent
 RUN cpan Log::Log4perl Log::LogDispatch Log::Dispatch::File YAML::Tiny \
