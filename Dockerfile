@@ -1,7 +1,7 @@
 FROM debian:latest
 
-RUN apt update -y
-RUN apt install -y cmake git poppler-utils imagemagick nsis tar wget
+RUN apt update -y && apt-get upgrade -y
+RUN apt install -y cmake git poppler-utils imagemagick nsis tar wget python3
 
 # Perl libraries for latexindent
 RUN cpan Log::Log4perl Log::LogDispatch Log::Dispatch::File YAML::Tiny \
@@ -9,10 +9,10 @@ RUN cpan Log::Log4perl Log::LogDispatch Log::Dispatch::File YAML::Tiny \
 
 # texlive
 RUN cd /usr/local/src && \
-  wget ftp://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2020/install-tl-unx.tar.gz && \
+  wget ftp://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2021/install-tl-unx.tar.gz && \
   tar -xz -f install-tl-unx.tar.gz && \
   cd install-tl-20* && \
   echo "selected_scheme scheme-full" > profile && \
   ./install-tl \
     -profile profile
-ENV PATH /usr/local/texlive/2020/bin/x86_64-linux:$PATH
+ENV PATH /usr/local/texlive/2021/bin/x86_64-linux:$PATH
