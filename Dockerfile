@@ -14,5 +14,6 @@ RUN cd /usr/local/src && \
   cd install-tl-20* && \
   echo "selected_scheme scheme-full" > profile && \
   ./install-tl \
+    -repository ftp://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2020/tlnet-final \
     -profile profile
 ENV PATH /usr/local/texlive/2020/bin/x86_64-linux:$PATH
